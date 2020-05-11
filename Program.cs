@@ -59,6 +59,8 @@ namespace ExtractAccess
                     Console.WriteLine("Saving report: " + report.FullName);
                     app.SaveAsText(AcObjectType.acReport, report.FullName, out_path + report.FullName + ".report.txt");
                 }
+                
+                app.CloseCurrentDatabase();
             }
         }
     }
