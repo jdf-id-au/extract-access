@@ -23,6 +23,8 @@ namespace ExtractAccess
                     return;
                 }
             }
+
+            Application app = new ApplicationClass();
             foreach (var mdb in args)
             {
                 mdb_path = Path.GetFullPath(mdb);
@@ -36,7 +38,6 @@ namespace ExtractAccess
                 Directory.CreateDirectory(out_path);
 
                 // after https://stackoverflow.com/questions/50816715/extract-vba-codea-from-access-via-c-sharp
-                Application app = new Application();
                 app.OpenCurrentDatabase(mdb_path);
 
                 if (app.CurrentProject.AllForms.Count > 0) Directory.CreateDirectory(forms_path);
@@ -73,6 +74,7 @@ namespace ExtractAccess
                 
                 app.CloseCurrentDatabase();
             }
+            app.Quit(AcQuitOption.acQuitSaveNone);
         }
     }
 }
