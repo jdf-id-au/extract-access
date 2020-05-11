@@ -24,7 +24,7 @@ namespace ExtractAccess
                 }
             }
 
-            Application app = new ApplicationClass();
+            Application app = new Application();
             foreach (var mdb in args)
             {
                 mdb_path = Path.GetFullPath(mdb);
